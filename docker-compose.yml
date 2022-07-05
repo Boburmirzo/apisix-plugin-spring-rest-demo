@@ -17,6 +17,7 @@ services:
     volumes:
       - ./apisix_log:/usr/local/apisix/logs
       - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+      - /tmp/runner.sock:/tmp/runner.sock
     depends_on:
       - etcd
     ##network_mode: host
