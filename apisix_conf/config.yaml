@@ -62,6 +62,7 @@ plugins:
   - uri-blocker
   - openid-connect
   - ext-plugin-pre-req
+  - api-breaker
 plugin_attr:
   prometheus:
     export_addr:
