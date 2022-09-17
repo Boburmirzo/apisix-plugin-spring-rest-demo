@@ -62,12 +62,20 @@ plugins:
   - uri-blocker
   - openid-connect
   - ext-plugin-pre-req
+  - proxy-cache
 plugin_attr:
   prometheus:
     export_addr:
       ip: "0.0.0.0"
       port: 9091
-
+proxy_cache:
+    cache_ttl: 10s                 # default caching time if the upstream doesn't specify the caching time
+    zones:
+    - name: disk_cache_one         # name of the cache. Admin can specify which cache to use in the Admin API by name
+      memory_size: 50m             # size of shared memory, used to store the cache index
+      disk_size: 1G                # size of disk, used to store the cache data
+      disk_path: "/tmp/disk_cache_one" # path to store the cache data
+      cache_levels: "1:2"
 # The /tmp/runner.sock is the address of the file
 # where apisix-java-plugin-runner and APISIX communicate between processes and must be consistent.
 ext-plugin:
