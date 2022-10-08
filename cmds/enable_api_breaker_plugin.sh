@@ -9,7 +9,7 @@ curl "http://127.0.0.1:9080/apisix/admin/routes/1" -H 'X-API-KEY: edd1c9f034335f
             "break_response_code": 502,
                   "max_breaker_sec": 30,
             "unhealthy": {
-                "http_statuses": [500, 503],
+                "http_statuses": [500, 502, 503],
                 "failures": 3
             },
             "healthy": {
